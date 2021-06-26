@@ -18,7 +18,7 @@ sudo apt-get install -y rename
 sudo apt-get install -y zsh
 
 echo "installing oh-my-zsh"
-echo -n "Y" | sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+echo -n "Y" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mkdir ~/.oh-my-zsh/downloads
 cd ~/.oh-my-zsh/downloads
 git clone https://github.com/dracula/zsh.git
