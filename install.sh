@@ -12,11 +12,23 @@ sudo apt-get install -y build-essential libssl-dev libffi-dev python-dev
 sudo apt-get install -y python-setuptools
 sudo apt-get install -y libldns-dev
 sudo apt-get install -y python3-pip
-sudo apt-get install -y python-pip
 sudo apt-get install -y python-dnspython
 sudo apt-get install -y git
 sudo apt-get install -y rename
-sudo apt-get install -y xargs
+sudo apt-get install -y zsh
+
+echo "installing oh-my-zsh"
+echo -n "Y" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+mkdir ~/.oh-my-zsh/downloads
+cd ~/.oh-my-zsh/downloads
+git clone https://github.com/dracula/zsh.git
+cp ./zsh/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
+cp -r ./zsh/lib/* ~/.oh-my-zsh/lib/.
+mkdir ~/.oh-my-zsh/themes/lib
+cp -r ./zsh/lib/* ~/.oh-my-zsh/themes/lib/.
+rm -rf zsh
+sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dracula"/' ~/.zshrc
+cd ~
 
 echo "installing .zshrc aliases from recon_profile"
 git clone https://github.com/Arnauec/zsh_recon_profile
@@ -186,7 +198,7 @@ cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
 cd ~/tools/
 echo "done"
 
-
+zsh
 
 echo -e "\n\n\n\n\n\n\n\n\n\n\nDone! All tools are set up in ~/tools"
 ls -la
