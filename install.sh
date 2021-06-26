@@ -21,6 +21,7 @@ echo "installing oh-my-zsh"
 echo -n "Y" | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 mkdir ~/.oh-my-zsh/downloads
 cd ~/.oh-my-zsh/downloads
+#installing the dracula theme
 git clone https://github.com/dracula/zsh.git
 cp ./zsh/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 cp -r ./zsh/lib/* ~/.oh-my-zsh/lib/.
@@ -29,6 +30,9 @@ cp -r ./zsh/lib/* ~/.oh-my-zsh/themes/lib/.
 rm -rf zsh
 sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="dracula"/' ~/.zshrc
 cd ~
+#installing the zsh-autosuggestions plugin 
+sudo git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
+sed -i 's/plugins=(git)/plugins=(git zsh-autosuggestions)/' ~/.zshrc
 
 echo "installing .zshrc aliases from recon_profile"
 git clone https://github.com/Arnauec/zsh_recon_profile
